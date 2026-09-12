@@ -1,0 +1,706 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Artist Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        body {
+            background: #ffffff;
+            color: #171717;
+            font-family: "Inter", sans-serif;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 85px;
+
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(10px);
+
+            z-index: 1000;
+        }
+
+
+        /* ================= HAMBURGER ================= */
+
+        .menu-button {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            gap: 6px;
+
+            cursor: pointer;
+        }
+
+        .menu-button span {
+            display: block;
+
+            width: 28px;
+            height: 1.5px;
+
+            background: #111;
+
+            transition: 0.3s;
+        }
+
+        .menu-button:hover span:first-child {
+            width: 20px;
+        }
+
+
+        /* ================= SIGNATURE ================= */
+
+    .signature {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+        /* ================= SIDE MENU ================= */
+
+        .side-menu {
+            position: fixed;
+
+            top: 0;
+            left: -320px;
+
+            width: 320px;
+            height: 100vh;
+
+            background: #111;
+
+            color: white;
+
+            z-index: 2000;
+
+            padding: 100px 45px;
+
+            transition: 0.4s ease;
+        }
+
+        .side-menu.active {
+            left: 0;
+        }
+
+        .close-menu {
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            font-size: 30px;
+
+            font-weight: 200;
+
+            cursor: pointer;
+        }
+
+        .side-menu ul {
+            list-style: none;
+        }
+
+        .side-menu li {
+            margin-bottom: 35px;
+        }
+
+        .side-menu a {
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 20px;
+
+            font-weight: 300;
+
+            transition: 0.3s;
+        }
+
+        .side-menu a:hover {
+            opacity: 0.5;
+        }
+
+
+        /* ================= HOME ================= */
+
+        .home {
+            width: 100%;
+            height: 100vh;
+
+            padding: 85px 6% 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* ================= CONTENT ================= */
+
+        .home-content {
+            width: 100%;
+            max-width: 1150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 90px;
+        }
+
+
+        /* ================= ARTIST IMAGE ================= */
+
+        .artist-container {
+            position: relative;
+
+            width: min(430px, 40vw);
+            height: min(570px, 70vh);
+
+            flex-shrink: 0;
+
+            overflow: hidden;
+        }
+
+        .artist-image {
+            width: 101%;
+           height: 123%;
+          object-fit: cover;
+   
+          display: block;
+          transform: scale(0.99);
+        }
+
+
+        /* ================= ARTWORK BUTTON ================= */
+
+        .artwork-button {
+            position: absolute;
+
+            bottom: 30px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            padding: 14px 30px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+
+            white-space: nowrap;
+        }
+
+        .artwork-button:hover {
+            background: #111;
+
+            color: white;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about {
+            max-width: 480px;
+
+            text-align: left;
+        }
+
+        .small-title {
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            color: #888;
+
+            margin-bottom: 18px;
+
+            text-transform: uppercase;
+        }
+
+        .artist-name {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(38px, 4vw, 60px);
+
+            font-weight: 400;
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            color: #555;
+
+            font-size: 15px;
+
+            font-weight: 300;
+
+            line-height: 2;
+
+            max-width: 430px;
+        }
+
+        .read-more {
+            display: inline-block;
+
+            margin-top: 28px;
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            letter-spacing: 1px;
+
+            border-bottom: 1px solid #111;
+
+            padding-bottom: 5px;
+
+            transition: 0.3s;
+        }
+
+        .read-more:hover {
+            opacity: 0.5;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            position: fixed;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 65px;
+
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border-top: 1px solid #eeeeee;
+
+            background: rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(10px);
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: #333;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.5;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .home-content {
+                gap: 45px;
+            }
+
+            .artist-container {
+                width: 40vw;
+                height: 62vh;
+            }
+
+            .about {
+                max-width: 400px;
+            }
+
+            .about-text {
+                font-size: 14px;
+            }
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                height: 70px;
+
+                padding: 0 25px;
+            }
+
+             .signature {
+              width: 75px;
+             }
+
+            .home {
+                height: 90vh;
+
+                padding: 85px 25px 75px;
+
+                align-items: center;
+            }
+
+            .home-content {
+                flex-direction: column;
+
+                gap: 20px;
+
+                justify-content: center;
+            }
+
+            .artist-container {
+                width: min(330px, 75vw);
+
+                height: min(420px, 52vh);
+            }
+
+            .artwork-button {
+                bottom: 18px;
+
+                padding: 12px 22px;
+
+                font-size: 11px;
+            }
+
+            .about {
+                width: 100%;
+
+                max-width: 500px;
+
+                text-align: center;
+            }
+
+            .small-title {
+                margin-bottom: 8px;
+
+                font-size: 10px;
+            }
+
+            .artist-name {
+                font-size: 32px;
+
+                margin-bottom: 10px;
+            }
+
+            .about-text {
+                display: none;
+            }
+
+            .read-more {
+                margin-top: 5px;
+            }
+
+            footer {
+                height: 55px;
+
+                padding: 0 25px;
+
+                font-size: 10px;
+            }
+
+            .footer-links {
+                gap: 15px;
+            }
+        }
+
+
+        /* ================= SMALL MOBILE ================= */
+
+        @media (max-height: 700px) and (max-width: 700px) {
+
+            .artist-container {
+                height: 350px;
+            }
+
+            .artist-name {
+                font-size: 27px;
+            }
+
+            .home-content {
+                gap: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="menu-button" onclick="openMenu()">
+
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="signature">
+          <img src="Images/sgin.PNG" alt="">
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= MENU ================= -->
+
+    <nav class="side-menu" id="sideMenu">
+
+        <div class="close-menu" onclick="closeMenu()">
+            ×
+        </div>
+
+
+        <ul>
+
+          
+            <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="Arts.html">
+
+                    Paintings
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Me
+
+                </a>
+
+            </li>
+            
+        </ul>
+
+    </nav>
+
+
+
+    <!-- ================= HOME ================= -->
+
+    <main class="home">
+
+        <div class="home-content">
+
+
+            <!-- ARTIST IMAGE -->
+
+            <div class="artist-container">
+
+              <img
+                    src="Images/nilufarzoomout.JPG"
+                    alt="Artist"
+                    class="artist-image"
+                >
+
+
+                <!-- ARTWORK BUTTON -->
+
+                <a
+                    href="Arts.html"
+                    class="artwork-button"
+                >
+                    View Artwork
+                </a>
+
+            </div>
+
+
+
+            <!-- ABOUT ARTIST -->
+
+            <section class="about">
+
+                <div class="small-title">
+                    About me 
+                </div>
+
+
+                <h1 class="artist-name">
+                   Nilufar kheirkhah
+                </h1>
+
+
+                <p class="about-text">
+
+                    I am an artist and painter inspired by
+                    emotions, nature, and the beauty of everyday life.
+
+                    Through my work, I explore the relationship
+                    between color, light, and human emotion.
+
+                </p>
+
+
+                <a
+                    href="about.html"
+                    class="read-more"
+                >
+                    Discover More
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>
+            © 2026 N KH 
+        </span>
+
+
+        <div class="footer-links">
+
+            <a
+                href="https://instagram.com/Nilufar_kheirkhah"
+                target="_blank"
+            >
+                Instagram
+            </a>
+
+            <a href="tel:+989914960646">
+                Phone
+            </a>
+
+            <a href="mailto:artist@example.com">
+                Email
+            </a>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function openMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList.add("active");
+
+        }
+
+
+        function closeMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList.remove("active");
+
+        }
+
+    </script>
+
+
+</body>
+</html>
