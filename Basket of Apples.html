@@ -1,0 +1,1574 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Leopard — Nilufar Kheirkhah</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&family=Vazirmatn:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            width: 100%;
+            min-height: 100%;
+        }
+
+
+        body {
+            background: #ffffff;
+            color: #171717;
+            font-family: "Inter", sans-serif;
+        }
+
+
+        /* ================= HEADER ================= */
+
+        header {
+
+            position: fixed;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 85px;
+
+            padding: 0 6%;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            background: rgba(255, 255, 255, 0.92);
+
+            backdrop-filter: blur(10px);
+
+            z-index: 1000;
+        }
+
+
+        /* ================= HAMBURGER ================= */
+
+        .menu-button {
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+
+            gap: 6px;
+
+            cursor: pointer;
+        }
+
+
+        .menu-button span {
+
+            display: block;
+
+            width: 28px;
+            height: 1.5px;
+
+            background: #111;
+
+            transition: 0.3s;
+        }
+
+
+        .menu-button:hover span:first-child {
+
+            width: 20px;
+        }
+
+
+        /* ================= SIGNATURE ================= */
+
+    .signature {
+    width: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signature img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+        /* ================= SIDE MENU ================= */
+
+        .side-menu {
+
+            position: fixed;
+
+            top: 0;
+            left: -320px;
+
+            width: 320px;
+            height: 100vh;
+
+            background: #111;
+
+            color: white;
+
+            z-index: 2000;
+
+            padding: 100px 45px;
+
+            transition: 0.4s ease;
+        }
+
+
+        .side-menu.active {
+
+            left: 0;
+        }
+
+
+        .close-menu {
+
+            position: absolute;
+
+            top: 25px;
+            right: 35px;
+
+            font-size: 30px;
+
+            font-weight: 200;
+
+            cursor: pointer;
+        }
+
+
+        .side-menu ul {
+
+            list-style: none;
+        }
+
+
+        .side-menu li {
+
+            margin-bottom: 35px;
+        }
+
+
+        .side-menu a {
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 20px;
+
+            font-weight: 300;
+
+            transition: 0.3s;
+        }
+
+
+        .side-menu a:hover {
+
+            opacity: 0.5;
+        }
+
+
+        /* ================= PAGE ================= */
+
+        .artwork-page {
+
+            width: 100%;
+
+            max-width: 1450px;
+
+            margin: auto;
+
+            padding:
+                125px
+                6%
+                110px;
+        }
+
+
+        /* ================= BACK ================= */
+
+        .back-link {
+
+            display: inline-block;
+
+            color: #777;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 55px;
+
+            transition: 0.3s;
+        }
+
+
+        .back-link:hover {
+
+            color: #111;
+        }
+
+
+        /* ================= MAIN LAYOUT ================= */
+
+        .artwork-layout {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.35fr)
+                minmax(320px, 0.65fr);
+
+            gap: 90px;
+
+            align-items: start;
+        }
+
+
+        /* ================= IMAGE ================= */
+
+        .artwork-gallery {
+
+            width: 100%;
+        }
+
+
+        .single-image {
+
+            width: 100%;
+
+            background: #f8f8f8;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+        }
+
+
+        .single-image img {
+
+            width: 100%;
+
+            height: min(72vh, 760px);
+
+            object-fit: contain;
+
+            display: block;
+        }
+
+
+        /* ================= INFORMATION ================= */
+
+        .artwork-info {
+
+            position: sticky;
+
+            top: 120px;
+
+            padding-top: 10px;
+        }
+
+
+        .category {
+
+            font-size: 11px;
+
+            letter-spacing: 3px;
+
+            color: #999;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        .artwork-title {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(42px, 4vw, 65px);
+
+            font-weight: 400;
+
+            line-height: 1.1;
+
+            margin-bottom: 35px;
+        }
+
+
+        /* ================= DETAILS ================= */
+
+        .details {
+
+            border-top: 1px solid #e7e7e7;
+
+            border-bottom: 1px solid #e7e7e7;
+
+            padding: 8px 0;
+        }
+
+
+        .detail-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+
+        .detail-row:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .detail-label {
+
+            font-size: 11px;
+
+            color: #999;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        .detail-value {
+
+            font-size: 13px;
+
+            color: #333;
+
+            text-align: right;
+
+            font-weight: 300;
+        }
+
+
+        /* ================= LANGUAGE SECTION ================= */
+
+        .language-section {
+
+            margin-top: 55px;
+        }
+
+
+        .language-title {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 30px;
+
+            font-weight: 400;
+
+            margin-bottom: 25px;
+        }
+
+
+        .description {
+
+            color: #555;
+
+            font-size: 14px;
+
+            font-weight: 300;
+
+            line-height: 2;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* ================= PERSIAN ================= */
+
+        .persian-section {
+
+            direction: rtl;
+
+            text-align: right;
+
+            font-family: "Vazirmatn", sans-serif;
+
+            margin-top: 65px;
+
+            padding-top: 45px;
+
+            border-top: 1px solid #e7e7e7;
+        }
+
+
+        .persian-section .language-title {
+
+            font-family: "Vazirmatn", sans-serif;
+
+            font-size: 28px;
+
+            font-weight: 400;
+        }
+
+
+        .persian-details {
+
+            border-top: 1px solid #e7e7e7;
+
+            border-bottom: 1px solid #e7e7e7;
+
+            padding: 8px 0;
+
+            margin-bottom: 30px;
+        }
+
+
+        .persian-detail-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding: 15px 0;
+
+            border-bottom: 1px solid #eeeeee;
+        }
+
+
+        .persian-detail-row:last-child {
+
+            border-bottom: none;
+        }
+
+
+        .persian-label {
+
+            font-size: 12px;
+
+            color: #999;
+        }
+
+
+        .persian-value {
+
+            font-size: 13px;
+
+            color: #333;
+        }
+
+
+        .persian-description {
+
+            color: #555;
+
+            font-size: 14px;
+
+            line-height: 2.2;
+
+            font-weight: 300;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+
+            width: 100%;
+
+            margin-top: 110px;
+
+            padding-top: 65px;
+
+            border-top: 1px solid #e7e7e7;
+
+            text-align: center;
+        }
+
+
+        .contact-section h2 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 38px;
+
+            font-weight: 400;
+
+            margin-bottom: 12px;
+        }
+
+
+        .contact-subtitle {
+
+            color: #888;
+
+            font-size: 12px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 40px;
+        }
+
+
+        /* ================= CONTACT ICONS ================= */
+
+        .contact-icons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 35px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .contact-icon {
+
+            width: 50px;
+
+            height: 50px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            color: #111;
+
+            text-decoration: none;
+
+            font-size: 24px;
+
+            border: 1px solid #e5e5e5;
+
+            border-radius: 50%;
+
+            transition: 0.3s;
+        }
+
+
+        .contact-icon:hover {
+
+            background: #111;
+
+            color: white;
+
+            border-color: #111;
+
+            transform: translateY(-3px);
+        }
+
+
+        /* ================= PURCHASE ================= */
+
+        .purchase {
+
+            margin-top: 40px;
+        }
+
+
+        .availability {
+
+            font-size: 11px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            color: #777;
+
+            margin-bottom: 18px;
+        }
+
+
+        .inquire-button {
+
+            display: inline-block;
+
+            padding: 15px 28px;
+
+            background: #111;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 11px;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+
+            transition: 0.3s;
+        }
+
+
+        .inquire-button:hover {
+
+            background: #333;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+
+            width: 100%;
+
+            min-height: 65px;
+
+            padding: 15px 6%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            border-top: 1px solid #eeeeee;
+
+            background: #ffffff;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+
+        .footer-links {
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+
+        .footer-links a {
+
+            color: #333;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-links a:hover {
+
+            opacity: 0.5;
+        }
+
+
+        /* ================= TABLET ================= */
+
+        @media (max-width: 900px) {
+
+            .artwork-layout {
+
+                grid-template-columns:
+                    minmax(0, 1.1fr)
+                    minmax(280px, 0.7fr);
+
+                gap: 50px;
+            }
+
+
+            .artwork-title {
+
+                font-size: 45px;
+            }
+
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            header {
+
+                height: 70px;
+
+                padding: 0 25px;
+            }
+
+
+          .signature {
+              width: 75px;
+             }
+
+
+            .artwork-page {
+
+                padding:
+                    105px
+                    25px
+                    80px;
+            }
+
+
+            .back-link {
+
+                margin-bottom: 35px;
+            }
+
+
+            /* MOBILE LAYOUT */
+
+            .artwork-layout {
+
+                display: flex;
+
+                flex-direction: column;
+
+                gap: 45px;
+            }
+
+
+            /* MOBILE IMAGE */
+
+            .single-image {
+
+                width: 100%;
+            }
+
+
+            .single-image img {
+
+                height: 65vh;
+
+                max-height: 600px;
+
+                object-fit: contain;
+            }
+
+
+            /* MOBILE INFO */
+
+            .artwork-info {
+
+                position: static;
+
+                width: 100%;
+
+                padding: 0;
+            }
+
+
+            .category {
+
+                font-size: 9px;
+
+                letter-spacing: 2.5px;
+
+                margin-bottom: 12px;
+            }
+
+
+            .artwork-title {
+
+                font-size: 38px;
+
+                margin-bottom: 28px;
+            }
+
+
+            .detail-row {
+
+                padding: 13px 0;
+            }
+
+
+            .detail-label {
+
+                font-size: 9px;
+            }
+
+
+            .detail-value {
+
+                font-size: 12px;
+            }
+
+
+            .language-section {
+
+                margin-top: 45px;
+            }
+
+
+            .language-title {
+
+                font-size: 27px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .description {
+
+                font-size: 13px;
+
+                line-height: 1.9;
+            }
+
+
+            .persian-section {
+
+                margin-top: 50px;
+
+                padding-top: 35px;
+            }
+
+
+            .persian-section .language-title {
+
+                font-size: 25px;
+            }
+
+
+            .persian-detail-row {
+
+                padding: 13px 0;
+            }
+
+
+            .persian-label {
+
+                font-size: 10px;
+            }
+
+
+            .persian-value {
+
+                font-size: 12px;
+            }
+
+
+            .persian-description {
+
+                font-size: 13px;
+
+                line-height: 2;
+            }
+
+
+            /* CONTACT */
+
+            .contact-section {
+
+                margin-top: 75px;
+
+                padding-top: 45px;
+            }
+
+
+            .contact-section h2 {
+
+                font-size: 30px;
+            }
+
+
+            .contact-subtitle {
+
+                font-size: 10px;
+
+                letter-spacing: 1.5px;
+
+                margin-bottom: 30px;
+            }
+
+
+            .contact-icons {
+
+                gap: 20px;
+            }
+
+
+            .contact-icon {
+
+                width: 45px;
+
+                height: 45px;
+
+                font-size: 20px;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+
+                min-height: 55px;
+
+                padding: 12px 25px;
+
+                font-size: 10px;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                justify-content: center;
+            }
+
+
+            .footer-links {
+
+                gap: 15px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div
+            class="menu-button"
+            onclick="openMenu()"
+            aria-label="Open menu"
+        >
+
+            <span></span>
+            <span></span>
+
+        </div>
+
+
+        <div class="signature">
+
+            <img
+                src="Images/sgin.PNG"
+                alt=""
+            >
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================= SIDE MENU ================= -->
+
+    <nav class="side-menu" id="sideMenu">
+
+        <div
+            class="close-menu"
+            onclick="closeMenu()"
+        >
+            ×
+        </div>
+
+
+        <ul>
+
+
+            <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="Arts.html">
+
+                    Paintings
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="about.html">
+
+                    About Me
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+
+    <!-- ================= ARTWORK PAGE ================= -->
+
+    <main class="artwork-page">
+
+
+        <a
+            href="Arts.html"
+            class="back-link"
+        >
+
+            ← Back to Paintings
+
+        </a>
+
+
+
+        <div class="artwork-layout">
+
+
+            <!-- ================= IMAGE ================= -->
+
+            <section class="artwork-gallery">
+
+                <div class="single-image">
+
+                    <img
+                        src="Images/BasketofApples.JPG"
+                        alt="Basket of Apples painting by Nilufar Kheirkhah"
+                    >
+
+                </div>
+
+
+            </section>
+
+
+
+            <!-- ================= ARTWORK INFORMATION ================= -->
+
+            <aside class="artwork-info">
+
+
+                <div class="category">
+
+                    Oil Painting
+
+                </div>
+
+
+                <h1 class="artwork-title">
+
+                    Basket of Apples
+
+                </h1>
+
+
+
+                <!-- ================= ENGLISH DETAILS ================= -->
+
+                <div class="details">
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+
+                            Artist
+
+                        </span>
+
+                        <span class="detail-value">
+
+                            Nilufar Kheirkhah
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+
+                            Year
+
+                        </span>
+
+                        <span class="detail-value">
+
+                            2019
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+
+                            Medium
+
+                        </span>
+
+                        <span class="detail-value">
+
+                            Oil on Canvas
+
+                        </span>
+
+                    </div>
+
+
+                    <div class="detail-row">
+
+                        <span class="detail-label">
+
+                            Subject
+
+                        </span>
+
+                        <span class="detail-value">
+
+                            Basket of Red Apples
+
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ================= ENGLISH DESCRIPTION ================= -->
+
+                <section class="language-section">
+
+
+                    <h2 class="language-title">
+
+                        About the Artwork
+
+                    </h2>
+
+
+                    <p class="description">
+
+                        This still-life painting centers on a basket of red
+                        apples, arranged alongside earthenware vessels, a
+                        cluster of grapes, and autumn leaves. The combination
+                        of these elements creates a warm and peaceful
+                        atmosphere, highlighting the beauty of simple,
+                        everyday objects.
+
+                    </p>
+
+
+                    <p class="description">
+
+                        Particular attention has been given to the
+                        representation of different textures, including the
+                        woven basket, pottery, fabric, and the skins of the
+                        fruits. Through the use of light and shadow, the
+                        volume and depth of the elements are rendered in a
+                        realistic manner. The contrast between the dark
+                        background and the warm colors of the apples draws
+                        the viewer's attention toward the focal point of the
+                        composition and enhances its visual impact.
+
+                    </p>
+
+
+                </section>
+
+
+
+                <!-- ================= PERSIAN ================= -->
+
+                <section class="persian-section">
+
+
+                    <h2 class="language-title">
+
+                        درباره اثر
+
+                    </h2>
+
+
+                    <div class="persian-details">
+
+
+                        <div class="persian-detail-row">
+
+                            <span class="persian-label">
+
+                                هنرمند
+
+                            </span>
+
+                            <span class="persian-value">
+
+                                نیلوفر خیرخواه
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="persian-detail-row">
+
+                            <span class="persian-label">
+
+                                سال خلق
+
+                            </span>
+
+                            <span class="persian-value">
+
+                                ۲۰۱۹
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="persian-detail-row">
+
+                            <span class="persian-label">
+
+                                تکنیک
+
+                            </span>
+
+                            <span class="persian-value">
+
+                                رنگ روغن روی بوم
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="persian-detail-row">
+
+                            <span class="persian-label">
+
+                                موضوع
+
+                            </span>
+
+                            <span class="persian-value">
+
+                                سبد سیب 
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <p class="persian-description">
+
+                        این اثر، یک طبیعت بی‌جان با محوریت سبدی از سیب‌های
+                        سرخ است که در کنار ظروف سفالی، خوشه انگور و برگ‌های
+                        پاییزی چیدمان شده‌اند. ترکیب این عناصر، فضایی گرم و
+                        آرام خلق کرده و زیبایی اشیای ساده و روزمره را به
+                        نمایش می‌گذارد.
+
+                    </p>
+
+
+                    <p class="persian-description">
+
+                        در این نقاشی، توجه ویژه‌ای به نمایش بافت‌های مختلف،
+                        از جمله بافت حصیر سبد، سفال، پارچه و پوست میوه‌ها شده
+                        است. همچنین با استفاده از نور و سایه، حجم و عمق عناصر
+                        به شکلی واقع‌گرایانه نمایش داده شده است. تضاد میان
+                        پس‌زمینه تیره و رنگ‌های گرم سیب‌ها، نگاه بیننده را
+                        به نقطه کانونی اثر هدایت می‌کند و بر جلوه بصری آن
+                        می‌افزاید.
+
+                    </p>
+
+
+                </section>
+
+
+
+
+                <!-- ================= CONTACT ================= -->
+
+                <section class="contact-section">
+
+
+                    <h2>
+
+                        Contact the Artist
+
+                    </h2>
+
+
+                    <div class="contact-subtitle">
+
+                        Get in Touch
+
+                    </div>
+
+
+                    <div class="contact-icons">
+
+
+                        <!-- Telegram -->
+
+                        <a
+                            href="https://t.me/yourusername"
+                            target="_blank"
+                            class="contact-icon"
+                            aria-label="Telegram"
+                            title="Telegram"
+                        >
+
+                            <i class="fa-brands fa-telegram"></i>
+
+                        </a>
+
+
+
+                        <!-- WhatsApp -->
+
+                        <a
+                            href="https://wa.me/989121234567"
+                            target="_blank"
+                            class="contact-icon"
+                            aria-label="WhatsApp"
+                            title="WhatsApp"
+                        >
+
+                            <i class="fa-brands fa-whatsapp"></i>
+
+                        </a>
+
+
+
+                        <!-- Phone -->
+
+                        <a
+                            href="tel:+989121234567"
+                            class="contact-icon"
+                            aria-label="Phone"
+                            title="Phone"
+                        >
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </a>
+
+
+
+                        <!-- Email -->
+
+                        <a
+                            href="mailto:artist@example.com"
+                            class="contact-icon"
+                            aria-label="Email"
+                            title="Email"
+                        >
+
+                            <i class="fa-solid fa-envelope"></i>
+
+                        </a>
+
+
+
+                        <!-- Instagram -->
+
+                        <a
+                            href="https://instagram.com/yourusername"
+                            target="_blank"
+                            class="contact-icon"
+                            aria-label="Instagram"
+                            title="Instagram"
+                        >
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+
+                    </div>
+
+
+                </section>
+
+
+            </aside>
+
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>
+
+            © 2026 N KH
+
+        </span>
+
+
+        <div class="footer-links">
+
+
+            <a
+                href="https://instagram.com/yourusername"
+                target="_blank"
+            >
+
+                Instagram
+
+            </a>
+
+
+            <a href="tel:+989121234567">
+
+                Phone
+
+            </a>
+
+
+            <a href="mailto:artist@example.com">
+
+                Email
+
+            </a>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* ================= SIDE MENU ================= */
+
+        function openMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList.add("active");
+
+        }
+
+
+        function closeMenu() {
+
+            document
+                .getElementById("sideMenu")
+                .classList.remove("active");
+
+        }
+
+
+
+        /* ================= CLOSE MENU WITH ESC ================= */
+
+        document.addEventListener(
+
+            "keydown",
+
+            function (event) {
+
+                if (event.key === "Escape") {
+
+                    closeMenu();
+
+                }
+
+            }
+
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+
